@@ -1,6 +1,7 @@
 /* Site menu. Add a destination by appending one entry. The open menu lists every other destination.
    Subscribe confirmation and thank-you pages are not destinations.
-   Scores is the one shared score library, on Lackadaisical Perfection. */
+   Scores is the one shared score library, on Lackadaisical Perfection.
+   Albums, newest first, sit under Scores. The current site is a "You're here" row. */
 (function () {
   var pages = [
     { href: "/", label: "Album" },
@@ -78,6 +79,92 @@
   menu.setAttribute("aria-label", "Pages");
   menu.hidden = true;
   menu.appendChild(list);
+
+  var albums = [
+    { href: "https://lackadaisicalperfection.com/", title: "Lackadaisical Perfection", file: "lackadaisical-perfection" },
+    { href: "https://pianoreveries.com/", title: "Piano Reveries and Phantasies", file: "piano-reveries" },
+    { href: "https://smittenwiththemuses.com/", title: "Smitten with the Muses", file: "smitten-with-the-muses" },
+    { href: "https://whereintheworldisdiane.com/", title: "Where In The World Is Diane", file: "where-in-the-world-is-diane" },
+    { href: "https://cleancalmpiano.com/", title: "Clean Calm Piano", file: "clean-calm-piano" },
+    { href: "https://tantalizingproof.com/", title: "Tantalizing Proof", file: "tantalizing-proof" },
+    { href: "https://pianoincolors.com/", title: "Piano In Colors", file: "piano-in-colors" },
+    { href: "https://melodicsubtlety.com/", title: "Melodic Subtlety \u2013 Solo Piano", file: "melodic-subtlety" }
+  ];
+
+  function siteHost() {
+    var host = (location.hostname || "").toLowerCase();
+    if (host.indexOf("www.") === 0) host = host.slice(4);
+    if (!host || host === "localhost" || host === "127.0.0.1") return "pianoincolors.com";
+    return host;
+  }
+
+  function coverImage(file) {
+    var image = document.createElement("img");
+    image.src = "/assets/albums/" + file + ".jpg";
+    image.srcset = "/assets/albums/" + file + ".jpg 48w, /assets/albums/" + file + "@2x.jpg 96w";
+    image.sizes = "48px";
+    image.width = 48;
+    image.height = 48;
+    image.alt = "";
+    image.decoding = "async";
+    return image;
+  }
+
+  var thisHost = siteHost();
+  var albumList = document.createElement("ul");
+  albumList.setAttribute("role", "list");
+  albums.forEach(function (album) {
+    var item = document.createElement("li");
+    var host = "";
+    try {
+      host = new URL(album.href).hostname.replace(/^www\./, "");
+    } catch (err) {
+      host = "";
+    }
+    if (host === thisHost) {
+      var current = document.createElement("div");
+      current.className = "album-current";
+      current.appendChild(coverImage(album.file));
+      var copy = document.createElement("span");
+      copy.className = "album-copy";
+      var title = document.createElement("span");
+      title.className = "album-title";
+      title.textContent = album.title;
+      var note = document.createElement("span");
+      note.className = "album-note";
+      note.textContent = "You're here";
+      copy.appendChild(title);
+      copy.appendChild(note);
+      current.appendChild(copy);
+      item.className = "is-here";
+      item.setAttribute("aria-current", "page");
+      item.appendChild(current);
+    } else {
+      var link = document.createElement("a");
+      link.href = album.href;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.appendChild(coverImage(album.file));
+      var name = document.createElement("span");
+      name.className = "album-title";
+      name.textContent = album.title;
+      link.appendChild(name);
+      item.appendChild(link);
+    }
+    albumList.appendChild(item);
+  });
+
+  var albumsLabel = document.createElement("p");
+  albumsLabel.id = "albums-label";
+  albumsLabel.className = "albums-label";
+  albumsLabel.textContent = "Albums";
+
+  var albumsSection = document.createElement("section");
+  albumsSection.className = "albums";
+  albumsSection.setAttribute("aria-labelledby", "albums-label");
+  albumsSection.appendChild(albumsLabel);
+  albumsSection.appendChild(albumList);
+  menu.appendChild(albumsSection);
 
   document.body.appendChild(button);
   document.body.appendChild(menu);

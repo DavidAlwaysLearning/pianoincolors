@@ -129,6 +129,83 @@
   color: var(--nav-glow);
 }
 
+.albums {
+  border-top: 1px solid var(--nav-line);
+}
+
+.albums-label {
+  margin: 0;
+  padding: 0.8rem 1.35rem 0.15rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6b6570;
+}
+
+.site-menu .albums ul {
+  padding: 0.1rem 0 0.45rem;
+}
+
+.site-menu .albums li {
+  min-width: 0;
+}
+
+.site-menu .albums a,
+.site-menu .album-current {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0.38rem 1.05rem;
+  color: var(--nav-ink);
+  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  text-decoration: none;
+}
+
+.site-menu .album-current {
+  color: #6b6570;
+  cursor: default;
+}
+
+.site-menu .album-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.site-menu .album-title {
+  display: block;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.site-menu .album-note {
+  display: block;
+  margin-top: 0.12rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  color: #6b6570;
+}
+
+.site-menu .albums img {
+  width: 48px;
+  height: 48px;
+  flex: none;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(90, 74, 154, 0.2);
+}
+
 @media (max-width: 760px) {
   :root {
     --nav-size: 64px;
@@ -137,6 +214,38 @@
 
   body > main {
     padding-top: 96px;
+  }
+
+  .site-menu .albums ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.35rem;
+    row-gap: 0.55rem;
+    padding: 0.15rem 0.7rem 0.75rem;
+  }
+
+  .site-menu .albums a,
+  .site-menu .album-current {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.15rem;
+    font-size: 1.02rem;
+  }
+
+  .site-menu .albums img {
+    align-self: center;
+  }
+
+  .albums-label {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .site-menu .album-copy {
+    align-items: center;
   }
 }
 
