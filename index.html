@@ -24,128 +24,164 @@
 <meta name="twitter:image:alt" content="Cover of Piano In Colors: colorful pianos and notes on white">
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "MusicAlbum",
- "name": "Piano In Colors",
- "url": "https://pianoincolors.com/",
- "image": "https://pianoincolors.com/assets/piano-in-colors-cover.jpg",
- "byArtist": {
-  "@type": "Person",
-  "name": "David Rivera",
-  "sameAs": [
-   "https://open.spotify.com/artist/5qoC4NXvjfV3cylbXALzV3",
-   "https://music.apple.com/us/artist/david-rivera/1325691064",
-   "https://www.facebook.com/pianoincolors",
-   "https://www.instagram.com/pianodavid1492/"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://lackadaisicalperfection.com/about/#david-rivera",
+      "name": "David Rivera",
+      "jobTitle": "American composer",
+      "description": "David Rivera is an American composer of piano-led instrumental music. He plays and samples every instrument on his recordings himself. He is an ASCAP member, his music is published by Subtlety Media, LLC, and his recordings are released through Subtlety Media.",
+      "url": "https://lackadaisicalperfection.com/about/",
+      "nationality": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "memberOf": {
+        "@type": "Organization",
+        "name": "ASCAP",
+        "url": "https://www.ascap.com/"
+      },
+      "affiliation": {
+        "@id": "https://lackadaisicalperfection.com/about/#subtlety-media"
+      },
+      "sameAs": [
+        "https://open.spotify.com/artist/5qoC4NXvjfV3cylbXALzV3",
+        "https://music.apple.com/us/artist/david-rivera/1325691064",
+        "https://x.com/melodicsubtlety",
+        "https://www.facebook.com/pianoincolors",
+        "https://www.instagram.com/pianodavid1492/",
+        "https://www.pandora.com/artist/david-rivera/ARXtg47gfjlv3nJ",
+        "https://www.youtube.com/channel/UCDqZ1e9Ur4PHynEylN_mJDg",
+        "https://www.deezer.com/artist/4592422",
+        "https://www.allmusic.com/artist/david-rivera-mn0002322820"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://lackadaisicalperfection.com/about/#subtlety-media",
+      "name": "Subtlety Media, LLC",
+      "url": "https://lackadaisicalperfection.com/about/"
+    },
+    {
+      "@type": "MusicAlbum",
+      "name": "Piano In Colors",
+      "url": "https://pianoincolors.com/",
+      "image": "https://pianoincolors.com/assets/piano-in-colors-cover.jpg",
+      "byArtist": {
+        "@id": "https://lackadaisicalperfection.com/about/#david-rivera"
+      },
+      "datePublished": "2007",
+      "numTracks": 15,
+      "genre": [
+        "Solo piano",
+        "Neoclassical"
+      ],
+      "sameAs": [
+        "https://music.apple.com/us/album/piano-in-colors-beautiful-melodies/264461603",
+        "https://open.spotify.com/album/28GABnzs8i3YUtlWuWz3g3"
+      ],
+      "description": "Fifteen pieces named for colors. Blue to scarlet, mauve to gray, then cyan. Same hands, a wider palette.",
+      "recordLabel": {
+        "@id": "https://lackadaisicalperfection.com/about/#subtlety-media"
+      },
+      "track": [
+        {
+          "@type": "MusicRecording",
+          "position": 1,
+          "name": "Blue",
+          "duration": "PT3M44S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 2,
+          "name": "Scarlet",
+          "duration": "PT3M48S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 3,
+          "name": "Purple",
+          "duration": "PT3M14S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 4,
+          "name": "Mauve",
+          "duration": "PT3M34S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 5,
+          "name": "Yellow",
+          "duration": "PT3M23S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 6,
+          "name": "Red",
+          "duration": "PT3M44S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 7,
+          "name": "Magenta",
+          "duration": "PT1M22S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 8,
+          "name": "Azure",
+          "duration": "PT4M30S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 9,
+          "name": "Pink",
+          "duration": "PT3M54S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 10,
+          "name": "Green",
+          "duration": "PT3M2S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 11,
+          "name": "Orange",
+          "duration": "PT4M22S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 12,
+          "name": "Sepia",
+          "duration": "PT3M50S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 13,
+          "name": "Aqua",
+          "duration": "PT4M33S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 14,
+          "name": "Gray",
+          "duration": "PT4M10S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 15,
+          "name": "Cyan",
+          "duration": "PT2M31S"
+        }
+      ],
+      "publisher": {
+        "@id": "https://lackadaisicalperfection.com/about/#subtlety-media"
+      }
+    }
   ]
- },
- "datePublished": "2007",
- "numTracks": 15,
- "genre": [
-  "Solo piano",
-  "Neoclassical"
- ],
- "sameAs": [
-  "https://music.apple.com/us/album/piano-in-colors-beautiful-melodies/264461603",
-  "https://open.spotify.com/album/28GABnzs8i3YUtlWuWz3g3"
- ],
- "description": "Fifteen pieces named for colors. Blue to scarlet, mauve to gray, then cyan. Same hands, a wider palette.",
- "recordLabel": {
-  "@type": "Organization",
-  "name": "Subtlety Media, LLC"
- },
- "track": [
-  {
-   "@type": "MusicRecording",
-   "position": 1,
-   "name": "Blue",
-   "duration": "PT3M44S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 2,
-   "name": "Scarlet",
-   "duration": "PT3M48S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 3,
-   "name": "Purple",
-   "duration": "PT3M14S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 4,
-   "name": "Mauve",
-   "duration": "PT3M34S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 5,
-   "name": "Yellow",
-   "duration": "PT3M23S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 6,
-   "name": "Red",
-   "duration": "PT3M44S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 7,
-   "name": "Magenta",
-   "duration": "PT1M22S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 8,
-   "name": "Azure",
-   "duration": "PT4M30S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 9,
-   "name": "Pink",
-   "duration": "PT3M54S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 10,
-   "name": "Green",
-   "duration": "PT3M2S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 11,
-   "name": "Orange",
-   "duration": "PT4M22S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 12,
-   "name": "Sepia",
-   "duration": "PT3M50S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 13,
-   "name": "Aqua",
-   "duration": "PT4M33S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 14,
-   "name": "Gray",
-   "duration": "PT4M10S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 15,
-   "name": "Cyan",
-   "duration": "PT2M31S"
-  }
- ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
