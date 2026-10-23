@@ -54,7 +54,8 @@
 (function () {
   var pages = [
     { href: "/", label: "Album" },
-    { href: "https://lackadaisicalperfection.com/scores/", label: "Scores", blank: true }
+    { href: "https://lackadaisicalperfection.com/scores/", label: "Scores", blank: true },
+    { href: "https://lackadaisicalperfection.com/about/", label: "About", blank: true }
   ];
 
   function normalize(path) {
@@ -147,14 +148,14 @@
     return host;
   }
 
-  function coverImage(file) {
+  function coverImage(file, title) {
     var image = document.createElement("img");
     image.src = "/assets/albums/" + file + ".jpg";
     image.srcset = "/assets/albums/" + file + ".jpg 48w, /assets/albums/" + file + "@2x.jpg 96w";
     image.sizes = "48px";
     image.width = 48;
     image.height = 48;
-    image.alt = "";
+    image.alt = title ? title.split(" \u2013 ")[0].split(" – ")[0] + " album cover" : "";
     image.decoding = "async";
     return image;
   }
@@ -173,7 +174,7 @@
     if (host === thisHost) {
       var current = document.createElement("div");
       current.className = "album-current";
-      current.appendChild(coverImage(album.file));
+      current.appendChild(coverImage(album.file, album.title));
       var copy = document.createElement("span");
       copy.className = "album-copy";
       var title = document.createElement("span");
@@ -193,7 +194,7 @@
       link.href = album.href;
       link.target = "_blank";
       link.rel = "noopener";
-      link.appendChild(coverImage(album.file));
+      link.appendChild(coverImage(album.file, album.title));
       var name = document.createElement("span");
       name.className = "album-title";
       name.textContent = album.title;
