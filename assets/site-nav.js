@@ -75,50 +75,19 @@
   }, true);
 })();
 
-/* Site menu. Add a destination by appending one entry. The open menu lists every other destination.
-   Subscribe confirmation and thank-you pages are not destinations.
-   Scores is the one shared score library, on Lackadaisical Perfection.
-   Albums, newest first, sit under Scores. The current site is a "You're here" row. */
+/* Site menu. Same destinations on every page: About, Scores, Subscribe, then the eight albums.
+   Subscribe confirmation is not a destination. The only page-specific mark is "You're here" on this album.
+   About, Scores, and Subscribe are the canonical Lackadaisical Perfection pages and open in a new tab. */
 (function () {
   var pages = [
-    { href: "/", label: "Album" },
+    { href: "https://lackadaisicalperfection.com/about/", label: "About", blank: true },
     { href: "https://lackadaisicalperfection.com/scores/", label: "Scores", blank: true },
-    { href: "https://lackadaisicalperfection.com/about/", label: "About", blank: true }
+    { href: "https://lackadaisicalperfection.com/subscribe/", label: "Subscribe", blank: true }
   ];
-
-  function normalize(path) {
-    var p = path || "/";
-    var base = location.origin && location.origin !== "null"
-      ? location.origin
-      : "https://pianoincolors.com";
-    try {
-      p = new URL(p, base).pathname;
-    } catch (err) {
-      p = "/";
-    }
-    if (p === "/index.html" || p.slice(-11) === "/index.html") {
-      p = p.slice(0, -10);
-    }
-    if (p.charAt(p.length - 1) !== "/") p += "/";
-    return p;
-  }
-
-  function excluded(path) {
-    return path.indexOf("/subscribe/confirmed/") !== -1
-      || path.indexOf("/thank-you/") !== -1
-      || path.indexOf("/thanks/") !== -1;
-  }
 
   function reducedMotion() {
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
-
-  var here = normalize(location.pathname);
-  var links = pages.filter(function (page) {
-    var path = normalize(page.href);
-    if (excluded(path)) return false;
-    return path !== here;
-  });
 
   var button = document.createElement("button");
   button.type = "button";
@@ -138,7 +107,7 @@
 
   var list = document.createElement("ul");
   list.setAttribute("role", "list");
-  links.forEach(function (page) {
+  pages.forEach(function (page) {
     var item = document.createElement("li");
     var link = document.createElement("a");
     link.href = page.href;
@@ -166,7 +135,7 @@
     { href: "https://cleancalmpiano.com/", title: "Clean Calm Piano", file: "clean-calm-piano" },
     { href: "https://tantalizingproof.com/", title: "Tantalizing Proof", file: "tantalizing-proof" },
     { href: "https://pianoincolors.com/", title: "Piano In Colors", file: "piano-in-colors" },
-    { href: "https://melodicsubtlety.com/", title: "Melodic Subtlety \u2013 Solo Piano", file: "melodic-subtlety" }
+    { href: "https://melodicsubtlety.com/", title: "Melodic Subtlety", file: "melodic-subtlety" }
   ];
 
   function siteHost() {
