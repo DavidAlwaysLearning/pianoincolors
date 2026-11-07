@@ -2,7 +2,7 @@
    Computers keep opening them in a new window. Runs on its own, before the menu code, and also catches
    links the menu adds later (checked again at tap time). */
 (function () {
-  var stores = ["open.spotify.com", "music.apple.com", "music.youtube.com", "soundcloud.com"];
+  var stores = ["open.spotify.com", "music.apple.com", "music.amazon.com", "music.youtube.com", "soundcloud.com"];
   var redirects = ["/spotify/", "/apple/", "/youtube-music/"];
   /* David's YouTube channel (not single videos): opens the app on phones like the stores. */
   var channels = ["/channel/ucdqz1e9ur4phyneylnmjdg", "/@melodicsubtlety", "/@relaxinginstrumentalvideos"];
